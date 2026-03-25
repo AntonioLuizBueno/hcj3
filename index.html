@@ -1,0 +1,110 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Técnicas de E-commerce | Dev Mastery</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/@3dweb/360javascriptviewer@1/lib/JavascriptViewer.min.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <h1>TÉCNICAS PARA E-COMMERCE</h1>
+        <p>Funcionalidades avançadas para conversão e performance</p>
+    </header>
+
+    <nav>
+        <a href="#zoom">Zoom de Imagem</a>
+        <a href="#v360">Visualização 360º</a>
+        <a href="#compare">Comparação</a>
+        <a href="#cart">Carrinho Interativo</a>
+        <a href="#feedback">Feedback Real-Time</a>
+    </nav>
+
+    <main>
+        <section id="zoom">
+            <h2>Zoom em Imagem de Produto</h2>
+            <article>
+                <h3>Implementação com JavaScript e CSS</h3>
+                <p>Otimização de desempenho garantida pelo uso de <code>transform: scale</code>, evitando reflow do
+                    layout.</p>
+                <div class="demo-box">
+                    <div class="zoom-container" id="zoomArea">
+                        <img src="imagens/imagem.webp" alt="Meu Produto" id="zoomImg">
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section id="v360">
+            <h2>Visualização em 360º</h2>
+            <article>
+                <h3>Integração com Biblioteca Especializada</h3>
+                <p>Arraste a imagem abaixo para rotacionar o produto em 360°.</p>
+                <div class="demo-box">
+                    <div id="jsv-holder" style="width: 100%; max-width: 400px; margin: 0 auto;">
+                        <img id="jsv-image" alt="Produto 360"
+                            src="https://360-javascriptviewer.gumlet.io/images/phone/iphone-gold-01.png">
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section id="compare">
+            <h2>Comparação de Produtos</h2>
+            <article>
+                <h3>Implementação com JavaScript e HTML</h3>
+                <p>Lógica de filtragem de atributos em tempo real para auxiliar a decisão de compra.</p>
+                <div class="demo-box">
+                    <button onclick="compare('Modelo Ultra')">Comparar Ultra</button>
+                    <button onclick="compare('Modelo Slim')">Comparar Slim</button>
+                    <div id="compareResult" class="result-text"></div>
+                </div>
+            </article>
+        </section>
+
+        <section id="cart">
+            <h2>Carrinho Suspenso</h2>
+            <article>
+                <h3>Integração com Sistema de Compras</h3>
+                <p>Melhoria na UX permitindo visualização rápida do subtotal sem trocar de página.</p>
+                <div class="demo-box">
+                    <button class="btn-main" onclick="toggleCart()">Ver Carrinho (Preview)</button>
+                </div>
+            </article>
+        </section>
+
+        <section id="feedback">
+            <h2>Feedback em Tempo Real</h2>
+            <article>
+                <h3>WebSockets e Exemplos de Uso</h3>
+                <p>Exemplo: Notificações de "Alguém acabou de comprar" para gatilhos de urgência.</p>
+                <div class="demo-box">
+                    <button onclick="simulatePurchase()">Simular Notificação</button>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <div id="cart-panel" class="side-panel">
+        <h3>Seu Carrinho</h3>
+        <p>1x Produto Exemplo - R$ 149,90</p>
+        <button onclick="toggleCart()">Fechar</button>
+    </div>
+
+    <div id="notification-box" class="toast">
+        🛒 Alguém de São Paulo acabou de comprar este item!
+    </div>
+
+    <footer>
+        <p>&copy; 2026 E-commerce Insights - Estrutura de Alta Performance</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

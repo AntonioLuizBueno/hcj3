@@ -1,0 +1,258 @@
+/*style.css*/
+:root {
+    --primary: #2563eb;
+    --secondary: #1e293b;
+    --accent: #f59e0b;
+    --light: #f8fafc;
+    --dark: #0f172a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--light);
+    color: var(--dark);
+    line-height: 1.6;
+}
+
+/* Layout */
+header {
+    background: var(--dark);
+    color: white;
+    padding: 3rem 5%;
+    text-align: center;
+}
+
+nav {
+    background: var(--secondary);
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 1rem;
+    z-index: 1000;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.85rem;
+}
+
+nav a:hover {
+    color: var(--accent);
+}
+
+main {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 20px;
+}
+
+section {
+    background: white;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+/* Componentes */
+.demo-box {
+    border: 1px solid #e2e8f0;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    background: #fff;
+}
+
+.zoom-container {
+    width: 100%;
+    max-width: 500px;
+    height: 500px;
+    /* Altura fixa para criar o "quadro" */
+    overflow: hidden;
+    position: relative;
+    border: 3px solid #2563eb;
+    margin: 20px auto;
+    background-color: #f0f0f0;
+    cursor: zoom-in;
+}
+
+#zoomImg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* Mostra a imagem inteira sem cortar */
+    display: block;
+    transition: transform 0.1s ease-out;
+}
+
+
+#jsv-holder {
+    width: 100%;
+    aspect-ratio: 1/1;
+    /* Mantém o quadrado para a rotação */
+    cursor: grab;
+}
+
+#jsv-holder:active {
+    cursor: grabbing;
+}
+
+#jsv-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+
+.side-panel {
+    position: fixed;
+    right: -320px;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background: white;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 2rem;
+    z-index: 2000;
+}
+
+.side-panel.active {
+    right: 0;
+}
+
+.toast {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: #059669;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    display: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-main {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+footer {
+    background: var(--dark);
+    color: #94a3b8;
+    text-align: center;
+    padding: 2rem;
+}
+
+
+
+/* Configurações Globais Responsivas */
+html {
+    font-size: 16px;
+}
+
+main {
+    width: 95%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Menu Responsivo */
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    /* Permite que os itens pulem de linha no celular */
+    justify-content: center;
+    gap: 10px;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    background: #1e293b;
+    z-index: 1000;
+}
+
+nav a {
+    padding: 8px 15px;
+    background: #334155;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    /* Evita que o texto do link quebre ao meio */
+}
+
+/* Containers de Imagem Flexíveis */
+.zoom-container,
+#jsv-holder {
+    width: 100%;
+    max-width: 500px;
+    /* Limite para desktop */
+    height: auto;
+    aspect-ratio: 1 / 1;
+    /* Mantém o quadrado perfeito em qualquer tela */
+    margin: 0 auto;
+}
+
+/* --- MEDIA QUERIES (A MÁGICA ACONTECE AQUI) --- */
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    nav {
+        gap: 5px;
+    }
+
+    nav a {
+        font-size: 0.8rem;
+        flex: 1 1 40%;
+        /* Faz os botões ocuparem metade da largura no mobile */
+        text-align: center;
+    }
+
+    section {
+        padding: 1rem;
+    }
+
+    .side-panel {
+        width: 100%;
+        /* Carrinho ocupa a tela toda no celular */
+        right: -100%;
+    }
+}
+
+@media (max-width: 480px) {
+    nav a {
+        flex: 1 1 100%;
+        /* Um link por linha em telas muito pequenas */
+    }
+
+    .zoom-container {
+        max-width: 100%;
+        /* Usa toda a largura disponível */
+    }
+}
